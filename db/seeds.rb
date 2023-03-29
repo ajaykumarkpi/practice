@@ -15,7 +15,7 @@ end
 puts "5 skills created"
 
 9.times do |portfolio_item|
-	Portfolio.create!(
+	Portfo.create!(
 		title:"Portfolio title: #{portfolio_item}",
         subtitle:"my great service",
         body:"this is software development.many stages will be there in this.",

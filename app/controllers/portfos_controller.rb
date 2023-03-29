@@ -1,2 +1,0 @@
-class PortfosController < ApplicationController
-end

@@ -1,18 +1,11 @@
-<h1>Portfolio Items </h1>
+<h1>Portfoilo Items</h1>
 
-<<<<<<< HEAD
-<%= portfolio_items.each do |portfolio_item|%>
-<p><%= link_to portfolio_item.title%></p>
-<p><%= link_to portfolio_item.subtitle %></p>
-<p><%= link_to portfolio_item.body %></p>
-<%= image_tag portfolio_item.thumb_image if ! portfolio_item.thumb_image.nil? %>
-=======
-<%= @portfolio_items.each do |portfolio_item| %>
-
-<p><%=portfolio_item.title%></p>
-
-<p><%=portfolio_item.subtitle%></p>
-<p><%=portfolio_item.body%></p>
-
->>>>>>> 4810cf22059b26b00855ec03b1331d468d2b5c5d
+<%= link_to "Create New Item",new_portfo_path %>
+<%= @portfo.each do |portfo|%>
+<p><%= link_to portfo.title,portfo_path(portfo) %></p>
+<p><%= portfo.subtitle %></p>
+<p><%= portfo.body %></p>
+<%= image_tag portfo.thumb_image if !portfo.thumb_image.nil?%>
+<%= link_to "Edit",edit_portfo_path(portfo.id) %>
+<%= link_to "Delete portfolio item",portfo_path(portfo),method: :delete, data: {confirm: 'Are you sure?'} %>
 <%end%>

@@ -1,8 +1,18 @@
-<h1>Portfolio items</h1>
+<h1>Portfolio Items </h1>
 
+<<<<<<< HEAD
 <%= portfolio_items.each do |portfolio_item|%>
 <p><%= link_to portfolio_item.title%></p>
 <p><%= link_to portfolio_item.subtitle %></p>
 <p><%= link_to portfolio_item.body %></p>
 <%= image_tag portfolio_item.thumb_image if ! portfolio_item.thumb_image.nil? %>
+=======
+<%= @portfolio_items.each do |portfolio_item| %>
+
+<p><%=portfolio_item.title%></p>
+
+<p><%=portfolio_item.subtitle%></p>
+<p><%=portfolio_item.body%></p>
+
+>>>>>>> 4810cf22059b26b00855ec03b1331d468d2b5c5d
 <%end%>

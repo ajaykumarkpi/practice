@@ -4,15 +4,16 @@ class PortfosController < ApplicationController
 	end
 
 def angular
-  @portfo=Portfo.angular
+  @angular_portfolio_items=Portfo.angular
 end
 
 	def new
 		@portfo=Portfo.new
+    3.times {@portfo.technologies.build}
 	end
 
 def create
-    @portfo=Portfo.new(params.require(:portfo).permit(:title,:subtitle, :body))
+    @portfo=Portfo.new(params.require(:portfo).permit(:title,:subtitle, :body, technologies_attributes: [:name]))
     respond_to do |format|
       if @portfo.save
         format.html { redirect_to portfos_path, notice: "Your Portfolio item is now live." }

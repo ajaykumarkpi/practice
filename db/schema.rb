@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(version: 2023_03_31_141524) do
     t.text "badge"
   end
 
+  create_table "technologies", force: :cascade do |t|
+    t.string "name"
+    t.integer "portfo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfo_id"], name: "index_technologies_on_portfo_id"
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string "title"

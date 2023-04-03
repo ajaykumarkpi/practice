@@ -22,9 +22,10 @@ puts "10 blog posts created"
 end
 puts "5 skills created"
 
-8.times do |portfo|
+    
+9.times do |portfolio_item|
 	Portfo.create!(
-		title:"Portfolio title: #{portfo}",
+		title:"Portfolio title: #{portfolio_item}",
         subtitle:"my great service",
         body:"this is software development.many stages will be there in this.",
         main_image:"http://placehold.co/600x400",

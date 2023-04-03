@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2023_03_31_141524) do
 ActiveRecord::Schema.define(version: 2023_03_30_085601) do
 
   create_table "blogs", force: :cascade do |t|
@@ -19,7 +20,13 @@ ActiveRecord::Schema.define(version: 2023_03_30_085601) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "status", default: 0
+
+    t.integer "topic_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
+    t.index ["topic_id"], name: "index_blogs_on_topic_id"
+
+    t.index ["slug"], name: "index_blogs_on_slug", unique: true
+
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -46,6 +53,21 @@ ActiveRecord::Schema.define(version: 2023_03_30_085601) do
   create_table "skills", force: :cascade do |t|
     t.string "title"
     t.integer "percent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "badge"
+  end
+
+  create_table "technologies", force: :cascade do |t|
+    t.string "name"
+    t.integer "portfo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["portfo_id"], name: "index_technologies_on_portfo_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

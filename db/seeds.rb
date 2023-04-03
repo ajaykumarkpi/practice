@@ -22,7 +22,7 @@ puts "10 blog posts created"
 end
 puts "5 skills created"
 
-9.times do |portfo|
+8.times do |portfo|
 	Portfo.create!(
 		title:"Portfolio title: #{portfo}",
         subtitle:"my great service",
@@ -32,6 +32,7 @@ puts "5 skills created"
         )
 end
 puts "9 portfolio items created"
+
 
 3.times do |technology|
 	Portfo.last.technologies.create!(

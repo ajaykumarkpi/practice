@@ -3,6 +3,10 @@ class PortfosController < ApplicationController
 		@portfo=Portfo.all
 	end
 
+def angular
+  @portfo=Portfo.angular
+end
+
 	def new
 		@portfo=Portfo.new
 	end

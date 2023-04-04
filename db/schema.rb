@@ -20,13 +20,9 @@ ActiveRecord::Schema.define(version: 2023_03_30_085601) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.integer "status", default: 0
-
     t.integer "topic_id"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
     t.index ["topic_id"], name: "index_blogs_on_topic_id"
-
-    t.index ["slug"], name: "index_blogs_on_slug", unique: true
-
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

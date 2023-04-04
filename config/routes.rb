@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :portfos
   get 'angular-items', to: 'portfos#angular'
   get 'about',to: 'pages#about'

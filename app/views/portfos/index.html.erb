@@ -9,13 +9,5 @@
 <%= image_tag portfo.thumb_image if !portfo.thumb_image.nil?%>
 <%= link_to "Edit",edit_portfo_path(portfo.id) %>
 <%= link_to "Delete portfolio item",portfo_path(portfo),method: :delete, data: {confirm: 'Are you sure?'} %>
-<h1>Portfolio Items </h1>
-
-<%= @portfolio_items.each do |portfolio_item| %>
-
-<p><%=portfolio_item.title%></p>
-
-<p><%=portfolio_item.subtitle%></p>
-<p><%=portfolio_item.body%></p>
 
 <%end%>

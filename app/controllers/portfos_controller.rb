@@ -13,7 +13,8 @@ end
 	end
 
 def create
-    @portfo=Portfo.new(params.require(:portfo).permit(:title,:subtitle, :body, technologies_attributes: [:name]))
+    @portfo=Portfo.new(portfo_params)
+    
     respond_to do |format|
       if @portfo.save
         format.html { redirect_to portfos_path, notice: "Your Portfolio item is now live." }
@@ -30,7 +31,7 @@ end
 def update
    @portfo=Portfo.find(params[:id])
     respond_to do |format|
-      if @portfo.update(params.require(:portfo).permit(:title,:subtitle, :body))
+      if @portfo.update(portfo_params)
         format.html { redirect_to portfos_path, notice: "The record was successfully updated." }
       else
         format.html { render :edit }
@@ -49,4 +50,13 @@ def update
       format.html { redirect_to portfos_url, notice: "Record was successfully removed." }
     end
   end
+
+  private
+
+  def portfo_params
+    params.require(:portfo).permit(:title,
+                                   :subtitle, 
+                                   :body, 
+                                   technologies_attributes: [:name])
+end
 end

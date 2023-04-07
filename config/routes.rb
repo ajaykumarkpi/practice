@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'angular-items', to: 'portfos#angular'
   get 'portfo/:id', to: 'portfos#show', as: 'portfo_show'
 
-  get 'about',to: 'pages#about'
+  get 'about-me',to: 'pages#about'
   get 'contact',to: 'pages#contact'
 
   resources :blogs do

@@ -1,4 +1,5 @@
 class PortfosController < ApplicationController
+  layout 'portfo'
   def index
 		@portfo=Portfo.all
 	end

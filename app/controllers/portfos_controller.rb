@@ -1,5 +1,7 @@
 class PortfosController < ApplicationController
+  before_action :set_portfo, only: [:edit,:update,:show,:destroy]
   layout 'portfo'
+
   def index
 		@portfo=Portfo.all
 	end
@@ -25,12 +27,10 @@ def create
     end
   end
 
-  def edit
-    @portfo=Portfo.find(params[:id])
+def edit
 end
 
 def update
-   @portfo=Portfo.find(params[:id])
     respond_to do |format|
       if @portfo.update(portfo_params)
         format.html { redirect_to portfos_path, notice: "The record was successfully updated." }
@@ -41,11 +41,9 @@ def update
   end
 
   def show
-    @portfo=Portfo.find(params[:id])
   end
 
   def destroy
-    @portfo=Portfo.find(params[:id])
     @portfo.destroy
     respond_to do |format|
       format.html { redirect_to portfos_url, notice: "Record was successfully removed." }
@@ -59,5 +57,9 @@ def update
                                    :subtitle, 
                                    :body, 
                                    technologies_attributes: [:name])
+end
+
+def set_portfo
+  @portfo=Portfo.find(params[:id])
 end
 end

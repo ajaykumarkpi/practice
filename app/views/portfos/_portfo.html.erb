@@ -5,5 +5,5 @@
 <p><%= portfo.body %></p>
 
 <%= image_tag portfo.thumb_image if !portfo.thumb_image.nil?%>
-<%= link_to "Edit",edit_portfo_path(portfo.id) %>
-<%= link_to "Delete portfolio item",portfo_path(portfo),method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= link_to "Edit",edit_portfo_path(portfo.id) if logged_in?(:site_admin) %>
+<%= link_to "Delete portfolio item",portfo_path(portfo),method: :delete, data: {confirm: 'Are you sure?'} if logged_in?(:site_admin) %>

@@ -1,9 +1,6 @@
-<p><%= link_to portfo.title,portfo_path(portfo) %></p>
-
-<p><%= portfo.subtitle %></p>
-
-<p><%= portfo.body %></p>
-
-<%= image_tag portfo.thumb_image if !portfo.thumb_image.nil?%>
-<%= link_to "Edit",edit_portfo_path(portfo.id) if logged_in?(:site_admin) %>
-<%= link_to "Delete portfolio item",portfo_path(portfo),method: :delete, data: {confirm: 'Are you sure?'} if logged_in?(:site_admin) %>
+<div class="card">
+  <%= image_tag portfo.thumb_image unless portfo.thumb_image.nil? %>
+  <p class="card-text">
+    <span><%= link_to portfo.title, portfo_path(portfo) %></span> <%= portfo.subtitle %>
+  </p>
+</div>

@@ -4,7 +4,7 @@ class PortfosController < ApplicationController
   access all: [:show,:index,:angular], user: {except: [:destroy,:new,:create,:update,:edit]}, site_admin: :all
   
   def index
-		@portfo=Portfo.all
+		@portfo=Portfo.by_position
 	end
 
 def angular

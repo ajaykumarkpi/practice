@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, path: '', path_names: {sign_in: 'login',sign_out: 'logout',sign_up: 'register'}
-  resources :portfos
+  resources :portfos, except: [:edit] do
+    put :sort, on: :collection
+  end
+
   get 'angular-items', to: 'portfos#angular'
   get 'portfo/:id', to: 'portfos#show', as: 'portfo_show'
 

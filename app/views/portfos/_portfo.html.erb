@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" data-id="<%= portfo.id %>">
   <%= image_tag portfo.thumb_image unless portfo.thumb_image.nil? %>
   <p class="card-text">
     <span><%= link_to portfo.title, portfo_path(portfo) %></span> <%= portfo.subtitle %>

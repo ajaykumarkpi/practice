@@ -1,7 +1,7 @@
 class PortfosController < ApplicationController
   before_action :set_portfo, only: [:edit,:update,:show,:destroy]
   layout 'portfo'
-  access all: [:show,:index,:angular], user: {except: [:destroy,:new,:create,:update,:edit]}, site_admin: :all
+  access all: [:show,:index,:angular], user: {except: [:destroy,:new,:create,:update,:edit,:sort]}, site_admin: :all
   
   def index
 		@portfo=Portfo.by_position

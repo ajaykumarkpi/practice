@@ -64,7 +64,9 @@ def update
   def portfo_params
     params.require(:portfo).permit(:title,
                                    :subtitle, 
-                                   :body, 
+                                   :body,
+                                   :main_image,
+                                   :thumb_image,
                                    technologies_attributes: [:name])
 end
 

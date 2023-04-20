@@ -4,16 +4,21 @@ class Portfo < ApplicationRecord
 	include Placeholder
 	after_initialize :set_defaults
 
-def self.angular
-	where(subtitle: 'Angular')
-end
-
-def self.by_position
-	order("position ASC")
-end
-
-scope :ruby_on_rails_portfolio_items,->{where(subtitle: 'Ruby on rails')}
 	
+	mount_uploader :thumb_image, PortfolioUploader
+    mount_uploader :main_image, PortfolioUploader
+
+    def self.angular
+	    where(subtitle: 'Angular')
+    end
+
+    def self.by_position
+	    order("position ASC")
+    end
+
+    scope :ruby_on_rails_portfolio_items,->{where(subtitle: 'Ruby on rails')}
+
+    
 	def set_defaults
 		self.main_image ||= Placeholder.image_generator(height: '600',width: '400')
 		self.thumb_image ||= Placeholder.image_generator(height: '300',width: '250')

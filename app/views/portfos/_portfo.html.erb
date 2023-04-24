@@ -1,6 +1,10 @@
-<div class="card" data-id="<%= portfo.id %>">
-  <%= image_tag portfo.thumb_image unless portfo.thumb_image.nil? %>
-  <p class="card-text">
-    <span><%= link_to portfo.title, portfo_path(portfo) %></span> <%= portfo.subtitle %>
-  </p>
+<div class="col-md-4">
+  <div class="card portfolio-box" data-id="<%= portfo.id %>">
+    <a href='<%= portfo_show_path(portfo) %>'>
+      <%= image_tag portfolio_img(portfo.thumb_image_url, 'thumb'), width: '100%' %>
+    </a>
+    <p class="card-text">
+      <span><%= link_to portfo.title, portfo_show_path(portfo) %></span> <%= portfo.subtitle %>
+    </p>
+  </div>
 </div>

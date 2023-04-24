@@ -20,8 +20,12 @@
       <% @portfo.technologies.each do |t| %>
       <p><%= t.name %></p>
       <% end %>
+
+      <% if logged_in?(:site_admin) %>
+        <div class="">
+          <%= link_to "Edit Item", edit_portfo_path(@portfo), class: 'btn btn-warning' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-
-

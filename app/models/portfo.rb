@@ -1,26 +1,20 @@
 class Portfo < ApplicationRecord
-	has_many :technologies
-	accepts_nested_attributes_for :technologies, reject_if:lambda {|attrs|attrs['name'].blank?}
-	include Placeholder
-	after_initialize :set_defaults
+  has_many :technologies
+  accepts_nested_attributes_for :technologies,
+                                reject_if: lambda { |attrs| attrs['name'].blank? }
 
-	
-	mount_uploader :thumb_image, PortfolioUploader
-    mount_uploader :main_image, PortfolioUploader
+  validates_presence_of :title, :body
 
-    def self.angular
-	    where(subtitle: 'Angular')
-    end
+  mount_uploader :thumb_image, PortfolioUploader
+  mount_uploader :main_image, PortfolioUploader
 
-    def self.by_position
-	    order("position ASC")
-    end
+  def self.angular
+    where(subtitle: 'Angular')
+  end
 
-    scope :ruby_on_rails_portfolio_items,->{where(subtitle: 'Ruby on rails')}
+  def self.by_position
+    order("position ASC")
+  end
 
-    
-	def set_defaults
-		self.main_image ||= Placeholder.image_generator(height: '600',width: '400')
-		self.thumb_image ||= Placeholder.image_generator(height: '300',width: '250')
-	end
+  scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Ruby on Rails') }
 end

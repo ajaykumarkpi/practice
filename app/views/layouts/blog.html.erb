@@ -8,7 +8,7 @@
     <%= csrf_meta_tags %>
 
     <meta name="keywords" content="<%= @seo_keywords %>" />
-
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.4.min.js' %>
     <%= stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>

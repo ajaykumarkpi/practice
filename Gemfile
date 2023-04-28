@@ -42,3 +42,4 @@ gem 'mini_magick', '~> 4.12'
 gem 'cocoon', '~> 1.2', '>= 1.2.15'
 gem 'gritter', '~> 1.2'
 
+

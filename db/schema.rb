@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_19_063409) do
+ActiveRecord::Schema.define(version: 2023_05_02_063230) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 2023_04_19_063409) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "matches", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "portfos", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
@@ -44,6 +50,15 @@ ActiveRecord::Schema.define(version: 2023_04_19_063409) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
+  end
+
+  create_table "rubies", force: :cascade do |t|
+    t.string "title"
+    t.integer "percent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "match_id"
+    t.index ["match_id"], name: "index_rubies_on_match_id"
   end
 
   create_table "skills", force: :cascade do |t|

@@ -1,3 +1,22 @@
+User.create!(
+  email: "test2@test.com",
+  password: "123456",
+  password_confirmation: "123456",
+  name: "Admin User",
+  roles: "site_admin"
+)
+
+puts "1 Admin user created"
+
+User.create!(
+  email: "test@test.com",
+  password: "123456",
+  password_confirmation: "123456",
+  name: "Regular User",
+)
+
+puts "1 regular user created"
+
 3.times do |topic|
 	Topic.create!(
 		title: "Topic#{topic}"
@@ -30,12 +49,13 @@ puts "5 skills created"
 	Portfo.create!(
 		title:"Portfolio title: #{portfo}",
         subtitle:"Ruby on Rails",
-        body:"this is software development.many stages will be there in this.",
+        body:"This is software development.many stages will be there in this.",
         main_image:"http://placehold.co/600x400",
         thumb_image:"http://placehold.co/300x250"
         )
 end
 
+ 
 puts "9 portfolio items created"
 
 
